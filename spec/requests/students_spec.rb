@@ -7,4 +7,11 @@ RSpec.describe "Students", :type => :request do
       expect(response.status).to be(200)
     end
   end
+  describe "GET /csv_upload" do
+  	it "should give form to upload csv file" do
+  		get csv_upload_path
+  		expect(response.status).to be(200)
+  	end
+  end
+
 end

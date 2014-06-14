@@ -61,6 +61,17 @@ class StudentsController < ApplicationController
     end
   end
 
+  def csv_upload
+  
+  end
+
+  def import_csv
+   Student.import(params[:student][:file])
+   respond_to do |format|
+    format.html { redirect_to root_path, :notice => 'Students successfully imported' }
+   end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_student
@@ -69,6 +80,6 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:roll_no, :name, :email)
+      params.require(:student).permit(:roll_no, :name, :email,:file)
     end
 end
