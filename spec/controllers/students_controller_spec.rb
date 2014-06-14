@@ -25,8 +25,7 @@ describe StudentsController do
   # adjust the attributes here as well.
   before(:each) do 
    @student = FactoryGirl.create(:student)  
-   @file_attribute = '/tmp/student_list.csv'  
-  end
+   end
   
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -34,7 +33,7 @@ describe StudentsController do
   let(:valid_session) { {} }
 
  describe "GET CSV_UPLOAD" do
-    it "renders csv upload template" do
+  it "renders csv upload template" do
       get :csv_upload
       expect(response).to render_template("csv_upload")
     end
@@ -51,8 +50,9 @@ describe StudentsController do
   describe "POST upload" do
     describe "with valid file attribute" do
       it "upload a csv file" do
-        post :import_csv, :file => @file_attribute
-        expect(response).to render_template("csv_upload")
+        @file_attribute = Rack::Test::UploadedFile.new('/home/webwerks/student_list.csv','text/csv')
+        post :import_csv, :student =>{:file => @file_attribute}
+        expect(response).to redirect_to root_path
       end
     end
   
