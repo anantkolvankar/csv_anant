@@ -1,28 +1,17 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application allow's you to upload csv file from front-end and update student records into database.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+student records csv format should me as below:-
+roll_no | name | email
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+we have used custom model method "import" which takes input as a csv file in above format and will search for any existing records based on roll_no and update the records for that student or else create new student records for that row. 
+
+we also have test case for upload csv and import csv feature which could be run  or tested through rspec.
+
+application configuration:-
+
+Rails 4.0.0
+Ruby 1.9.3
+mysql 5.6
