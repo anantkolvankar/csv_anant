@@ -1,7 +1,7 @@
 CsvUpload::Application.routes.draw do
   resources :students 
   get 'csv_upload' => "students#csv_upload"
-  root :to => "students#csv_upload"
+  root :to => "students#index"
   post 'import_csv' => "students#import_csv"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

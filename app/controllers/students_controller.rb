@@ -66,7 +66,7 @@ class StudentsController < ApplicationController
   end
 
   def import_csv
-   Student.import(params[:student][:file])
+   Student.from_csv(params[:student][:file])
    respond_to do |format|
     format.html { redirect_to root_path, :notice => 'Students successfully imported' }
    end

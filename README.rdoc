@@ -10,8 +10,11 @@ we have used custom model method "import" which takes input as a csv file in abo
 
 we also have test case for upload csv and import csv feature which could be run  or tested through rspec.
 
+we have updated our data import process, Now you don't have to wait till your data get's imported just upload your file we will send you the mail regarding import status Enjoy.
 application configuration:-
 
 Rails 4.0.0
 Ruby 1.9.3
 mysql 5.6
+delayed_job 4.0.4 , github: 'collectiveidea/delayed_job'
+delayed_job_active_record 4.0.2
